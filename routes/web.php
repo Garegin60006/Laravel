@@ -21,12 +21,10 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/user', function () {
 
 
-// $address = Address::with('users')->get();
-$users = User::with('address')->get();
+// $users = User::has('posts', '>=', 1)->with('posts')->get();
 
-// $users[0]->addresses()->create([
-//     'country' => 'Nepal'
-// ]);
+$users = User::doesntHave('posts')->with('posts')->get();
+
 
 return view('user', compact('users'));
 
@@ -35,15 +33,6 @@ return view('user', compact('users'));
 
 
 Route::get('/posts', function () {
-    // Post::create([
-    //     'user_id' => 1,
-    //     'title' => 'post title 1',
-    // ]);
-
-    // Post::create([
-    //     'user_id' => 2,
-    //     'title' => 'post title 2',
-    // ]);
 
     $posts = Post::get();
 
