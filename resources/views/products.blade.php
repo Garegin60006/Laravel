@@ -8,14 +8,12 @@
 </head>
 <body>
 
-<h2>posts</h2>
+    <h2>Product blade</h2>
 
-@foreach ($posts as $post)
-    <h4>{{ $post->title }}</h4>
-    <p>{{ optional($post->user)->name }}</p>
-@endforeach
-
-
+    <p>
+        Cars:
+        {{ $product->cars }}
+    </p>
 
 </body>
 </html>
